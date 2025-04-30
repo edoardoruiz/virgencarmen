@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\User;
+use App\Models\TurnosMayor;
+
+class TurnosMayorPolicy
+{
+    public function view(User $user, TurnosMayor $turnoMayor)
+    {
+        // El administrador puede ver todos los turnos
+        if ($user->role === 'admin') {
+            return true;
+        }
+
+        // Verifica si el turno está asignado al usuario actual
+        return $turnoMayor->assignedUsers->contains($user);
+    }
+}
