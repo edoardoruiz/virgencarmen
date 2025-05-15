@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TurnosVelas;
-use App\Models\Veladetalle;
+use App\Models\VelaDetalle;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\VelasDetalleExport;
@@ -17,7 +17,7 @@ class VelaDetalleController extends Controller
     public function index()
     {
         //
-        $velasdetalle = Veladetalle::all();
+        $velasdetalle = VelaDetalle::all();
         return view('VelasDetalle.index', compact('velasdetalle'));
     }
 
@@ -94,14 +94,14 @@ class VelaDetalleController extends Controller
         //dd($detalle);
     
         // Incluye la clase FPDF
-        require_once('C:\laragon\www\turnos\vendor\setasign\fpdf\fpdf.php');
+        require_once base_path('vendor/setasign/fpdf/fpdf.php');;
 
         $pdf = new \FPDF();
         $pdf->AddPage();
 
         // Agrega las imágenes de fondo
-        $pdf->Image('img/Inscripciones2024.jpg', 0, 10, 210, 140, 'JPG');
-        $pdf->Image('img/Inscripciones2024.jpg', 0, 150, 210, 140, 'JPG');
+        $pdf->Image('img/Inscripciones2025.jpg', 0, 10, 210, 140, 'JPG');
+        $pdf->Image('img/Inscripciones2025.jpg', 0, 150, 210, 140, 'JPG');
 
         // Establece la fuente y el tamaño
         $pdf->SetFont('Arial', '', 11);
@@ -136,13 +136,13 @@ class VelaDetalleController extends Controller
         $pdf->SetFont('Arial','B',7);
         $pdf->Ln(11);
         $pdf->cell(0,3,'Indicaciones Generales:',0,1,'C');
-        $pdf->cell(0,3,utf8_decode("Los turnos serán entregados los días sábado 6 de julio de 10:00 a 15:30 horas y domingo 7 de julio de 8:00 a 13:00 horas."),0,1,'C');
+        $pdf->cell(0,3,utf8_decode("Los turnos serán entregados los días sábado 5 de julio de 10:00 a 15:30 horas y domingo 6 de julio de 8:00 a 13:00 horas."),0,1,'C');
         $pdf->cell(0,3,utf8_decode("Las andas procesionales serán levantadas a las 15:00 horas en punto."),0,1,'C');
         $pdf->cell(0,3,utf8_decode("Evite llevar niños en brazos, de la mano o debajo del anda al momento de cargar."),0,1,'C');
         $pdf->cell(0,3,'Presentarse 15 minutos antes de su turno en la fila asignada.',0,1,'C');
         $pdf->cell(0,3,'Uniformidad:',0,1,'C');
-        $pdf->cell(0,3,'Damas: Vestido blanco o blusa blanca y falda blanca/cafe debajo de la rodilla, medias, zapatos y mantilla.',0,1,'C');
-        $pdf->cell(0,3,utf8_decode("Caballeros: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (No chumpa, no suéteres, no lentes de sol, no aretes, no tenis)."),0,1,'C');
+        $pdf->cell(0,3,'DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.',0,1,'C');
+        $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
 
         $pdf->Ln(58); // Espacio para evitar la superposición con la imagen
         $pdf->SetFont('Arial', '', 11);
@@ -155,13 +155,13 @@ class VelaDetalleController extends Controller
         $pdf->SetFont('Arial', 'B', 7);
         $pdf->Ln(13);
         $pdf->cell(0,3,'Indicaciones Generales:',0,1,'C');
-        $pdf->cell(0,3,utf8_decode("Los turnos serán entregados los días sábado 6 de julio de 10:00 a 15:30 horas y domingo 7 de julio de 8:00 a 13:00 horas."),0,1,'C');
+        $pdf->cell(0,3,utf8_decode("Los turnos serán entregados los días sábado 5 de julio de 10:00 a 15:30 horas y domingo 6 de julio de 8:00 a 13:00 horas."),0,1,'C');
         $pdf->cell(0,3,utf8_decode("Las andas procesionales serán levantadas a las 15:00 horas en punto."),0,1,'C');
         $pdf->cell(0,3,utf8_decode("Evite llevar niños en brazos, de la mano o debajo del anda al momento de cargar."),0,1,'C');
         $pdf->cell(0,3,'Presentarse 15 minutos antes de su turno en la fila asignada.',0,1,'C');
         $pdf->cell(0,3,'Uniformidad:',0,1,'C');
-        $pdf->cell(0,3,'Damas: Vestido blanco o blusa blanca y falda blanca/cafe debajo de la rodilla, medias, zapatos y mantilla.',0,1,'C');
-        $pdf->cell(0,3,utf8_decode("Caballeros: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (No chumpa, no suéteres, no lentes de sol, no aretes, no tenis)."),0,1,'C');
+        $pdf->cell(0,3,'DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.',0,1,'C');
+        $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
         // Salida del PDF (descarga el archivo al navegador)
         $pdf->Output('devoto ' .$detalle->DPI . '.pdf', 'D');
     }

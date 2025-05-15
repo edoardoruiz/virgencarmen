@@ -6,8 +6,8 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <label for="username">Usuario</label>
+            <input type="textbox" class="form-control" id="username" name="username" required>
         </div>
         <div class="form-group">
             <label for="password">Contraseña</label>
