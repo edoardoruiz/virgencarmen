@@ -133,7 +133,7 @@ class TurnosDetalleController extends Controller
         $pdf->cell(0,3,utf8_decode("Evite llevar niños en brazos, de la mano o debajo del anda al momento de cargar."),0,1,'C');
         $pdf->cell(0,3,'Presentarse 15 minutos antes de su turno en la fila asignada.',0,1,'C');
         $pdf->cell(0,3,'Uniformidad:',0,1,'C');
-        $pdf->cell(0,3,'DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.',0,1,'C');
+        $pdf->cell(0,3,utf8_decode('DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.'),0,1,'C');
         $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
 
         $pdf->Ln(58); // Espacio para evitar la superposición con la imagen
@@ -152,8 +152,7 @@ class TurnosDetalleController extends Controller
         $pdf->cell(0,3,utf8_decode("Evite llevar niños en brazos, de la mano o debajo del anda al momento de cargar."),0,1,'C');
         $pdf->cell(0,3,'Presentarse 15 minutos antes de su turno en la fila asignada.',0,1,'C');
         $pdf->cell(0,3,'Uniformidad:',0,1,'C');
-        $pdf->cell(0,3,'DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.',0,1,'C');
-        $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
+        $pdf->cell(0,3,utf8_decode('DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.'),0,1,'C');        $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
         // Salida del PDF (descarga el archivo al navegador)
         $pdf->Output('devoto ' .$detalle->DPI . '.pdf', 'D');
     }

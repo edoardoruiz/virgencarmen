@@ -44,7 +44,6 @@ return array(
     'App\\Models\\Home' => $baseDir . '/app/Models/Home.php',
     'App\\Models\\TurnosMayor' => $baseDir . '/app/Models/TurnosMayor.php',
     'App\\Models\\TurnosVelas' => $baseDir . '/app/Models/TurnosVelas.php',
-    'App\\Models\\Turnosdetalle' => $baseDir . '/app/Models/Turnosdetalle.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\VelaDetalle' => $baseDir . '/app/Models/VelaDetalle.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

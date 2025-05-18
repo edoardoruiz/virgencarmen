@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('asignacion')->nullable();;
             $table->string('codigo_turno')->nullable();
             $table->string('turno');
+            $table->string('direccion');
             $table->decimal('precio',10,2);
             $table->decimal('disponibilidad',10,0);
             $table->timestamps();

@@ -11,6 +11,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Asignación</th>
                 <th scope="col">Turno</th>
+                <th scope="col">Direccion</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Disponibilidad</th>
                 <th scope="col">Acción</th>
@@ -22,6 +23,7 @@
                     <td>{{ $turno->id }}</td>
                     <td>{{ $turno->asignacion }}</td>
                     <td>{{ $turno->turno }}</td>
+                    <td>{{ $turno->direccion }}</td>
                     <td>{{ $turno->precio }}</td>
                     <td>{{ $turno->disponibilidad }}</td>
                     <td>
@@ -85,7 +87,9 @@
                             <label for="forma_pago">Forma de Pago</label>
                             <select class="form-control" id="forma_pago" name="forma_pago">
                                 <option value="Efectivo">Efectivo</option>
+                                @can('delete')
                                 <option value="Transferencia">Transferencia</option>
+                                @endcan
                             </select>
                         </div>
                         <div class="form-group" id="numero_autorizacion_group" style="display: none;">

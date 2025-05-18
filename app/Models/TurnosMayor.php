@@ -15,6 +15,7 @@ class TurnosMayor extends Model
         "asignacion",
         "codigo_turno",
         "turno",
+        "direccion",
         "precio",
         "disponibilidad"   
     ];

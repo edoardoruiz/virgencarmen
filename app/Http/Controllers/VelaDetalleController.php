@@ -124,7 +124,7 @@ class VelaDetalleController extends Controller
 
     
         $totalWidth = $cellWidth + $valueWidth;
-        $startX = ($pdf->GetPageWidth() - $totalWidth) / 2;
+        $startX = 10;
 
         foreach ($fields as $field => $value) {
         // Establecer la posición X para los campos
@@ -137,16 +137,15 @@ class VelaDetalleController extends Controller
         $pdf->Ln(11);
         $pdf->cell(0,3,'Indicaciones Generales:',0,1,'C');
         $pdf->cell(0,3,utf8_decode("Los turnos serán entregados los días sábado 5 de julio de 10:00 a 15:30 horas y domingo 6 de julio de 8:00 a 13:00 horas."),0,1,'C');
-        $pdf->cell(0,3,utf8_decode("Las andas procesionales serán levantadas a las 15:00 horas en punto."),0,1,'C');
+        $pdf->cell(0,3,utf8_decode("Las andas procesionales serán levantadas a las 18:00 horas en punto."),0,1,'C');
         $pdf->cell(0,3,utf8_decode("Evite llevar niños en brazos, de la mano o debajo del anda al momento de cargar."),0,1,'C');
         $pdf->cell(0,3,'Presentarse 15 minutos antes de su turno en la fila asignada.',0,1,'C');
         $pdf->cell(0,3,'Uniformidad:',0,1,'C');
-        $pdf->cell(0,3,'DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.',0,1,'C');
+        $pdf->cell(0,3,utf8_decode('DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.'),0,1,'C');
         $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
 
         $pdf->Ln(58); // Espacio para evitar la superposición con la imagen
         $pdf->SetFont('Arial', '', 11);
-            
         foreach ($fields as $field => $value) {
             $pdf->SetX($startX);
             $pdf->Cell($cellWidth, 6, $field, 0, 0, 'L'); // Campo alineado a la izquierda
@@ -156,11 +155,11 @@ class VelaDetalleController extends Controller
         $pdf->Ln(13);
         $pdf->cell(0,3,'Indicaciones Generales:',0,1,'C');
         $pdf->cell(0,3,utf8_decode("Los turnos serán entregados los días sábado 5 de julio de 10:00 a 15:30 horas y domingo 6 de julio de 8:00 a 13:00 horas."),0,1,'C');
-        $pdf->cell(0,3,utf8_decode("Las andas procesionales serán levantadas a las 15:00 horas en punto."),0,1,'C');
+        $pdf->cell(0,3,utf8_decode("Las andas procesionales serán levantadas a las 18:00 horas en punto."),0,1,'C');
         $pdf->cell(0,3,utf8_decode("Evite llevar niños en brazos, de la mano o debajo del anda al momento de cargar."),0,1,'C');
         $pdf->cell(0,3,'Presentarse 15 minutos antes de su turno en la fila asignada.',0,1,'C');
         $pdf->cell(0,3,'Uniformidad:',0,1,'C');
-        $pdf->cell(0,3,'DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.',0,1,'C');
+        $pdf->cell(0,3,utf8_decode('DAMAS: Vestido blanco o blusa blanca y falda blanca/café debajo de la rodilla, medias, zapatos (FORMALES, NO TENIS) y mantilla.'),0,1,'C');
         $pdf->cell(0,3,utf8_decode("CABALLEROS: Traje formal oscuro, camisa blanca y corbata (NO CORBATIN) y zapatos formales (NO CHUMPA, NO SUÉTER, NO ARETES, NO TENIS)."),0,1,'C');
         // Salida del PDF (descarga el archivo al navegador)
         $pdf->Output('devoto ' .$detalle->DPI . '.pdf', 'D');

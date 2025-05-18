@@ -10,8 +10,8 @@
             <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="form-group">
-            <label for="email">username</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <label for="username">username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
